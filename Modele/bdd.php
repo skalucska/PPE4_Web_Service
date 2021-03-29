@@ -20,7 +20,7 @@ public function getConnect($login,$password){
 }
 
 public function getInfoProduit($idProduit, $localisation){
-  $res = $this->dbh->prepare('SELECT count(0) from produitenstock join entrepot on EN_ID= FK_EN where FK_Pr = :idProduit and EN_ville = :localisation;');
+  $res = $this->dbh->prepare('SELECT count(0) as verif from produitenstock join entrepot on EN_ID= FK_EN where FK_Pr = :idProduit and EN_ville = :localisation;');
 
   $res->execute(array(":idProduit" => $idProduit, ":localisation" => $localisation));
   return $res->fetchAll(PDO::FETCH_ASSOC);
