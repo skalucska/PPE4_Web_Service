@@ -3,7 +3,7 @@ include "../Modele/Bdd.php";
 
 $bdd = new Bdd();
 
-$ville = $_GET["ville"];
+$ville = lowcase($_GET["ville"]);
 $produitHorStock = $bdd->getProduitHorStock($ville);
 foreach ($produitHorStock as $row) {
     echo (json_encode($produitHorStock));
