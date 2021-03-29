@@ -7,7 +7,7 @@ $quantite = $_GET["quantite"];
 $localisation = strtolower($_GET["ville"]);
 $idProduit = $_GET["id"];
 $quantiteStocker = $bdd->getQuantite($idProduit, $localisation);
-$ajoutStock = $quantiteStocker["0"];
-$newquantiter = $quantite+$ajoutStock;
+$ajoutStock = $quantiteStocker[0][0];
+$newquantiter = $quantite + $ajoutStock;
 $bdd->updateQuantiteProduit($newquantiter, $idProduit, $localisation);
 ?>

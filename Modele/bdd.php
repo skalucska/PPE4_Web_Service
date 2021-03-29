@@ -30,7 +30,7 @@ public function getQuantite($idProduit, $localisation){
   $res = $this->dbh->prepare('SELECT etatDeStock from produitenstock where FK_Pr = :idProduit and fk_en = (select en_id from entrepot where en_ville = :localisation);');
 
   $res->execute(array(":idProduit" => $idProduit, ":localisation" => $localisation));
-  return $res->fetchAll(PDO::FETCH_ASSOC);
+  return $res->fetchAll();
 }
 
 
