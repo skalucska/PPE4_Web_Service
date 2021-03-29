@@ -15,8 +15,6 @@ public function __construct(){
 public function getConnect($login,$password){
 
   $res = $this->dbh->prepare('SELECT count(0) as connexionValide from utilisateurs where us_user = :login and us_pass = :password;');
-
-
   $res->execute(array(":login" => $login,":password" => $password));
   return $res->fetchAll(PDO::FETCH_ASSOC);
 }
